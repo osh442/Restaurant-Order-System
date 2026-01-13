@@ -1,0 +1,14 @@
+C:\Users\Vito\source\repos\PersonalPJ\PersonalPJ.Data\bin\Debug\net10.0\PersonalPJ.Data.deps.json
+C:\Users\Vito\source\repos\PersonalPJ\PersonalPJ.Data\bin\Debug\net10.0\PersonalPJ.Data.runtimeconfig.json
+C:\Users\Vito\source\repos\PersonalPJ\PersonalPJ.Data\bin\Debug\net10.0\PersonalPJ.Data.dll
+C:\Users\Vito\source\repos\PersonalPJ\PersonalPJ.Data\bin\Debug\net10.0\PersonalPJ.Data.pdb
+C:\Users\Vito\source\repos\PersonalPJ\PersonalPJ.Data\obj\Debug\net10.0\PersonalPJ.Data.csproj.AssemblyReference.cache
+C:\Users\Vito\source\repos\PersonalPJ\PersonalPJ.Data\obj\Debug\net10.0\PersonalPJ.Data.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Vito\source\repos\PersonalPJ\PersonalPJ.Data\obj\Debug\net10.0\PersonalPJ.Data.AssemblyInfoInputs.cache
+C:\Users\Vito\source\repos\PersonalPJ\PersonalPJ.Data\obj\Debug\net10.0\PersonalPJ.Data.AssemblyInfo.cs
+C:\Users\Vito\source\repos\PersonalPJ\PersonalPJ.Data\obj\Debug\net10.0\PersonalPJ.Data.csproj.CoreCompileInputs.cache
+C:\Users\Vito\source\repos\PersonalPJ\PersonalPJ.Data\obj\Debug\net10.0\PersonalPJ.Data.dll
+C:\Users\Vito\source\repos\PersonalPJ\PersonalPJ.Data\obj\Debug\net10.0\refint\PersonalPJ.Data.dll
+C:\Users\Vito\source\repos\PersonalPJ\PersonalPJ.Data\obj\Debug\net10.0\PersonalPJ.Data.pdb
+C:\Users\Vito\source\repos\PersonalPJ\PersonalPJ.Data\obj\Debug\net10.0\PersonalPJ.Data.genruntimeconfig.cache
+C:\Users\Vito\source\repos\PersonalPJ\PersonalPJ.Data\obj\Debug\net10.0\ref\PersonalPJ.Data.dll

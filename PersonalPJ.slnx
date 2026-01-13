@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="PersonalPJ.App/PersonalPJ.App.csproj" />
+  <Project Path="PersonalPJ.Data/PersonalPJ.Data.csproj" />
+</Solution>
