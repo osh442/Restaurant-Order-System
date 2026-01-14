@@ -165,3 +165,4 @@ C:\Users\Vito\source\repos\PersonalPJ\PersonalPJ.App\obj\Debug\net10.0\refint\Pe
 C:\Users\Vito\source\repos\PersonalPJ\PersonalPJ.App\obj\Debug\net10.0\PersonalPJ.App.pdb
 C:\Users\Vito\source\repos\PersonalPJ\PersonalPJ.App\obj\Debug\net10.0\PersonalPJ.App.genruntimeconfig.cache
 C:\Users\Vito\source\repos\PersonalPJ\PersonalPJ.App\obj\Debug\net10.0\ref\PersonalPJ.App.dll
+C:\Users\Vito\source\repos\PersonalPJ\PersonalPJ.App\obj\Debug\net10.0\PersonalPJ.App.sourcelink.json

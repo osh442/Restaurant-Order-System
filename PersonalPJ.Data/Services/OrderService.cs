@@ -1,9 +1,8 @@
-﻿using RestaurantOrderSystem.Data;
-using RestaurantOrderSystem.Data.Entities;
-using RestaurantOrderSystem.App.DTOs;
+﻿using RestaurantOrderSystem.Data.Entities;
+using RestaurantOrderSystem.Data.DTOs;
 using Microsoft.EntityFrameworkCore;
 
-namespace RestaurantOrderSystem.App.Services
+namespace RestaurantOrderSystem.Data.Services
 {
   
     public class OrderService

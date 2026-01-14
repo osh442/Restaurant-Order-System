@@ -1,4 +1,4 @@
-﻿namespace RestaurantOrderSystem.App.DTOs
+﻿namespace RestaurantOrderSystem.Data.DTOs
 {
 
     public class OrderDTO

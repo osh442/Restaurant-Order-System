@@ -12,3 +12,4 @@ C:\Users\Vito\source\repos\PersonalPJ\PersonalPJ.Data\obj\Debug\net10.0\refint\P
 C:\Users\Vito\source\repos\PersonalPJ\PersonalPJ.Data\obj\Debug\net10.0\PersonalPJ.Data.pdb
 C:\Users\Vito\source\repos\PersonalPJ\PersonalPJ.Data\obj\Debug\net10.0\PersonalPJ.Data.genruntimeconfig.cache
 C:\Users\Vito\source\repos\PersonalPJ\PersonalPJ.Data\obj\Debug\net10.0\ref\PersonalPJ.Data.dll
+C:\Users\Vito\source\repos\PersonalPJ\PersonalPJ.Data\obj\Debug\net10.0\PersonalPJ.Data.sourcelink.json

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PersonalPJ.Data")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+93875ce1ac31ded0d19ef933459ce112c3ce84be")]
 [assembly: System.Reflection.AssemblyProductAttribute("PersonalPJ.Data")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PersonalPJ.Data")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

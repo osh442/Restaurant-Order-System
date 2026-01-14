@@ -1,9 +1,8 @@
-﻿using RestaurantOrderSystem.Data;
-using RestaurantOrderSystem.Data.Entities;
-using RestaurantOrderSystem.App.DTOs;
+﻿using RestaurantOrderSystem.Data.Entities;
+using RestaurantOrderSystem.Data.DTOs;
 using Microsoft.EntityFrameworkCore;
 
-namespace RestaurantOrderSystem.App.Services
+namespace RestaurantOrderSystem.Data.Services
 {
 
     public class DataService
@@ -17,9 +16,7 @@ namespace RestaurantOrderSystem.App.Services
 
         #region Restaurants
 
-        /// <summary>
         /// Показване на всички ресторанти
-        /// </summary>
         public List<RestaurantDTO> GetAllRestaurants()
         {
             return _context.Restaurants
@@ -34,9 +31,7 @@ namespace RestaurantOrderSystem.App.Services
                 .ToList();
         }
 
-        /// <summary>
         /// Добавяне на ресторант
-        /// </summary>
         public RestaurantDTO AddRestaurant(RestaurantImportDTO dto)
         {
             var restaurant = new Restaurant
@@ -64,9 +59,7 @@ namespace RestaurantOrderSystem.App.Services
 
         #region Categories
 
-        /// <summary>
         /// Показване на всички категории
-        /// </summary>
         public List<CategoryDTO> GetAllCategories()
         {
             return _context.Categories
@@ -79,9 +72,7 @@ namespace RestaurantOrderSystem.App.Services
                 .ToList();
         }
 
-        /// <summary>
         /// Добавяне на категория
-        /// </summary>
         public CategoryDTO AddCategory(CategoryImportDTO dto)
         {
             var category = new Category
@@ -105,9 +96,7 @@ namespace RestaurantOrderSystem.App.Services
 
         #region MenuItems
 
-        /// <summary>
         /// Показване на всички меню позиции
-        /// </summary>
         public List<MenuItemDTO> GetAllMenuItems()
         {
             return _context.MenuItems
@@ -126,9 +115,7 @@ namespace RestaurantOrderSystem.App.Services
                 .ToList();
         }
 
-        /// <summary>
         /// Показване на налични меню позиции
-        /// </summary>
         public List<MenuItemDTO> GetAvailableMenuItems()
         {
             return _context.MenuItems
@@ -148,9 +135,7 @@ namespace RestaurantOrderSystem.App.Services
                 .ToList();
         }
 
-        /// <summary>
         /// Търсене на меню позиции по име
-        /// </summary>
         public List<MenuItemDTO> SearchMenuItems(string searchTerm)
         {
             return _context.MenuItems
@@ -170,9 +155,7 @@ namespace RestaurantOrderSystem.App.Services
                 .ToList();
         }
 
-        /// <summary>
         /// Добавяне на меню позиция
-        /// </summary>
         public MenuItemDTO? AddMenuItem(MenuItemCreateDTO dto)
         {
             // Проверка дали ресторантът и категорията съществуват

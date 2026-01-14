@@ -1,4 +1,4 @@
-﻿using RestaurantOrderSystem.App.DTOs;
+﻿using RestaurantOrderSystem.Data.DTOs;
 using RestaurantOrderSystem.App.Utilities;
 
 namespace RestaurantOrderSystem.App.Utilities
@@ -46,18 +46,18 @@ namespace RestaurantOrderSystem.App.Utilities
                 return;
             }
 
-            Console.WriteLine("\n╔════════════════════════════════════════════════════════════╗");
+            Console.WriteLine("╔════════════════════════════════════════════════════════════╗");
             Console.WriteLine("║                      РЕСТОРАНТИ                            ║");
             Console.WriteLine("╠════════════════════════════════════════════════════════════╣");
 
             foreach (var restaurant in restaurants)
             {
-                Console.WriteLine($"║ ID: {restaurant.Id,-3} │ {restaurant.Name,-45} ║");
-                Console.WriteLine($"║ Адрес: {restaurant.Address,-48} ║");
-                Console.WriteLine($"║ Телефон: {restaurant.Phone,-15} │ Email: {restaurant.Email,-23} ║");
+                Console.WriteLine($"║ ID: {restaurant.Id,-3} │ {restaurant.Name,-45}");
+                Console.WriteLine($"║ Адрес: {restaurant.Address,-48}");
+                Console.WriteLine($"║ Телефон: {restaurant.Phone,-15} │ Email: {restaurant.Email,-23}");
                 Console.WriteLine("╠════════════════════════════════════════════════════════════╣");
             }
-            Console.WriteLine("╚════════════════════════════════════════════════════════════╝\n");
+            Console.WriteLine("╚════════════════════════════════════════════════════════════╝");
         }
 
         public static void PrintCategories(List<CategoryDTO> categories)
@@ -68,17 +68,17 @@ namespace RestaurantOrderSystem.App.Utilities
                 return;
             }
 
-            Console.WriteLine("\n╔════════════════════════════════════════════════════════════╗");
+            Console.WriteLine("╔════════════════════════════════════════════════════════════╗");
             Console.WriteLine("║                      КАТЕГОРИИ                             ║");
             Console.WriteLine("╠════════════════════════════════════════════════════════════╣");
 
             foreach (var category in categories)
             {
-                Console.WriteLine($"║ ID: {category.Id,-3} │ {category.Name,-48} ║");
-                Console.WriteLine($"║ {category.Description,-56} ║");
+                Console.WriteLine($"║ ID: {category.Id,-3} │ {category.Name,-48}");
+                Console.WriteLine($"║ {category.Description,-56}");
                 Console.WriteLine("╠════════════════════════════════════════════════════════════╣");
             }
-            Console.WriteLine("╚════════════════════════════════════════════════════════════╝\n");
+            Console.WriteLine("╚════════════════════════════════════════════════════════════╝");
         }
 
         public static void PrintMenuItems(List<MenuItemDTO> menuItems)
@@ -89,19 +89,19 @@ namespace RestaurantOrderSystem.App.Utilities
                 return;
             }
 
-            Console.WriteLine("\n╔════════════════════════════════════════════════════════════╗");
+            Console.WriteLine("╔════════════════════════════════════════════════════════════╗");
             Console.WriteLine("║                     МЕНЮ ПОЗИЦИИ                           ║");
             Console.WriteLine("╠════════════════════════════════════════════════════════════╣");
 
             foreach (var item in menuItems)
             {
                 string available = item.IsAvailable ? "Налично" : "Не е налично";
-                Console.WriteLine($"║ ID: {item.Id,-3} │ {item.Name,-45} ║");
-                Console.WriteLine($"║ Цена: {item.Price,-6:F2} lv │ {available,-10} │ {item.CategoryName,-25} ║");
-                Console.WriteLine($"║ Ресторант: {item.RestaurantName,-45} ║");
+                Console.WriteLine($"║ ID: {item.Id,-3} │ {item.Name,-45}");
+                Console.WriteLine($"║ Цена: {item.Price,-6:F2} lv │ {available,-10} │ {item.CategoryName,-25}");
+                Console.WriteLine($"║ Ресторант: {item.RestaurantName,-45}");
                 Console.WriteLine("╠════════════════════════════════════════════════════════════╣");
             }
-            Console.WriteLine("╚════════════════════════════════════════════════════════════╝\n");
+            Console.WriteLine("╚════════════════════════════════════════════════════════════╝");
         }
 
         public static void PrintOrders(List<OrderDTO> orders)
@@ -112,29 +112,29 @@ namespace RestaurantOrderSystem.App.Utilities
                 return;
             }
 
-            Console.WriteLine("\n╔════════════════════════════════════════════════════════════╗");
+            Console.WriteLine("╔════════════════════════════════════════════════════════════╗");
             Console.WriteLine("║                       ПОРЪЧКИ                              ║");
             Console.WriteLine("╠════════════════════════════════════════════════════════════╣");
 
             foreach (var order in orders)
             {
-                Console.WriteLine($"║ Поръчка #{order.Id,-3} │ Дата: {order.OrderDate:dd.MM.yyyy HH:mm}         ║");
-                Console.WriteLine($"║ Потребител: {order.Username,-20} │ Статус: {order.Status,-15} ║");
-                Console.WriteLine($"║ Ресторант: {order.RestaurantName,-44} ║");
-                Console.WriteLine($"║ Обща сума: {order.TotalAmount,-6:F2} lv                                  ║");
+                Console.WriteLine($"║ Поръчка #{order.Id,-3} │ Дата: {order.OrderDate:dd.MM.yyyy HH:mm}");
+                Console.WriteLine($"║ Потребител: {order.Username,-20} │ Статус: {order.Status,-15}");
+                Console.WriteLine($"║ Ресторант: {order.RestaurantName,-44}");
+                Console.WriteLine($"║ Обща сума: {order.TotalAmount,-6:F2} lv");
 
                 if (order.Items.Count > 0)
                 {
-                    Console.WriteLine("║ Позиции:                                                   ║");
+                    Console.WriteLine("║ Позиции:");
                     foreach (var item in order.Items)
                     {
-                        Console.WriteLine($"║   - {item.MenuItemName,-30} x{item.Quantity} | {item.Price:F2} lv    ║");
+                        Console.WriteLine($"║   - {item.MenuItemName,-30} x{item.Quantity} | {item.Price:F2} lv");
                     }
                 }
 
                 Console.WriteLine("╠════════════════════════════════════════════════════════════╣");
             }
-            Console.WriteLine("╚════════════════════════════════════════════════════════════╝\n");
+            Console.WriteLine("╚════════════════════════════════════════════════════════════╝");
         }
 
         public static void PrintUsers(List<UserDTO> users)
@@ -145,17 +145,17 @@ namespace RestaurantOrderSystem.App.Utilities
                 return;
             }
 
-            Console.WriteLine("\n╔════════════════════════════════════════════════════════════╗");
+            Console.WriteLine("╔════════════════════════════════════════════════════════════╗");
             Console.WriteLine("║                     ПОТРЕБИТЕЛИ                            ║");
             Console.WriteLine("╠════════════════════════════════════════════════════════════╣");
 
             foreach (var user in users)
             {
-                Console.WriteLine($"║ ID: {user.Id,-3} │ {user.Username,-45} ║");
-                Console.WriteLine($"║ Роля: {user.Role,-20} │ Статус: {user.Status,-20} ║");
+                Console.WriteLine($"║ ID: {user.Id,-3} │ {user.Username,-45}");
+                Console.WriteLine($"║ Роля: {user.Role,-20} │ Статус: {user.Status,-20}");
                 Console.WriteLine("╠════════════════════════════════════════════════════════════╣");
             }
-            Console.WriteLine("╚════════════════════════════════════════════════════════════╝\n");
+            Console.WriteLine("╚════════════════════════════════════════════════════════════╝");
         }
 
         public static void WaitForKey(string message = "Натиснете Enter за продължение...")

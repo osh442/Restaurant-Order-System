@@ -1,7 +1,16 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\Vito\\source\\repos\\PersonalPJ\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{65697D6D-5626-08EB-6A14-F9576073FCBA}|PersonalPJ.App\\PersonalPJ.App.csproj|c:\\users\\vito\\source\\repos\\personalpj\\personalpj.app\\utilities\\uihelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{65697D6D-5626-08EB-6A14-F9576073FCBA}|PersonalPJ.App\\PersonalPJ.App.csproj|solutionrelative:personalpj.app\\utilities\\uihelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{65697D6D-5626-08EB-6A14-F9576073FCBA}|PersonalPJ.App\\PersonalPJ.App.csproj|c:\\users\\vito\\source\\repos\\personalpj\\personalpj.app\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{65697D6D-5626-08EB-6A14-F9576073FCBA}|PersonalPJ.App\\PersonalPJ.App.csproj|solutionrelative:personalpj.app\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,11 +18,37 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 0,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "UIHelper.cs",
+              "DocumentMoniker": "C:\\Users\\Vito\\source\\repos\\PersonalPJ\\PersonalPJ.App\\Utilities\\UIHelper.cs",
+              "RelativeDocumentMoniker": "PersonalPJ.App\\Utilities\\UIHelper.cs",
+              "ToolTip": "C:\\Users\\Vito\\source\\repos\\PersonalPJ\\PersonalPJ.App\\Utilities\\UIHelper.cs",
+              "RelativeToolTip": "PersonalPJ.App\\Utilities\\UIHelper.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-14T08:35:11.818Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Vito\\source\\repos\\PersonalPJ\\PersonalPJ.App\\Program.cs",
+              "RelativeDocumentMoniker": "PersonalPJ.App\\Program.cs",
+              "ToolTip": "C:\\Users\\Vito\\source\\repos\\PersonalPJ\\PersonalPJ.App\\Program.cs",
+              "RelativeToolTip": "PersonalPJ.App\\Program.cs",
+              "ViewState": "AgIAAAECAAAAAAAAAAAqwBECAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-14T08:34:10.002Z",
+              "EditorCaption": ""
             }
           ]
         }

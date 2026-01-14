@@ -1,11 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
-using RestaurantOrderSystem.App.DTOs;
-using RestaurantOrderSystem.Data;
+using RestaurantOrderSystem.Data.DTOs;
 using RestaurantOrderSystem.Data.Entities;
 using System.Xml;
 
-namespace RestaurantOrderSystem.App.Services
+namespace RestaurantOrderSystem.Data.Services
 {
 
     public class JSONService
@@ -19,9 +18,7 @@ namespace RestaurantOrderSystem.App.Services
 
         #region Import
 
-        /// <summary>
         /// Импорт на ресторанти от JSON
-        /// </summary>
         public (int success, int failed) ImportRestaurants(string jsonPath)
         {
             try
@@ -68,9 +65,8 @@ namespace RestaurantOrderSystem.App.Services
             }
         }
 
-        /// <summary>
+
         /// Импорт на меню позиции от JSON
-        /// </summary>
         public (int success, int failed) ImportMenuItems(string jsonPath)
         {
             try

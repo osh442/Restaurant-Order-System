@@ -1,6 +1,6 @@
 ﻿using RestaurantOrderSystem.Data;
-using RestaurantOrderSystem.App.Services;
-using RestaurantOrderSystem.App.DTOs;
+using RestaurantOrderSystem.Data.Services;    
+using RestaurantOrderSystem.Data.DTOs;        
 using RestaurantOrderSystem.App.Utilities;
 
 namespace RestaurantOrderSystem.App
@@ -237,20 +237,19 @@ namespace RestaurantOrderSystem.App
                 Console.WriteLine("4. Преглед на моите поръчки");
 
                 Console.WriteLine("\n=== ДОБАВЯНЕ ===");
-                Console.WriteLine("5. Добави меню позиция");
-                Console.WriteLine("6. Създай поръчка");
+                Console.WriteLine("5. Създай поръчка");
 
                 Console.WriteLine("\n=== JSON ОПЕРАЦИИ ===");
-                Console.WriteLine("7. Импорт на ресторанти от JSON");
-                Console.WriteLine("8. Импорт на меню позиции от JSON");
-                Console.WriteLine("9. Експорт на поръчки към JSON");
+                Console.WriteLine("6. Импорт на ресторанти от JSON");
+                Console.WriteLine("7. Импорт на меню позиции от JSON");
+                Console.WriteLine("8. Експорт на поръчки към JSON");
 
                 Console.WriteLine("\n=== СПРАВКИ (LINQ) ===");
-                Console.WriteLine("10. Топ 10 най-скъпи меню позиции");
-                Console.WriteLine("11. Активни поръчки");
-                Console.WriteLine("12. Статистика по ресторанти");
-                Console.WriteLine("13. Най-популярни меню позиции");
-                Console.WriteLine("14. Средна стойност на поръчка");
+                Console.WriteLine("9. Топ 10 най-скъпи меню позиции");
+                Console.WriteLine("10. Активни поръчки");
+                Console.WriteLine("11. Статистика по ресторанти");
+                Console.WriteLine("12. Най-популярни меню позиции");
+                Console.WriteLine("13. Средна стойност на поръчка");
 
                 Console.WriteLine("\n0. Logout");
                 Console.Write("\nИзберете опция: ");
@@ -272,33 +271,30 @@ namespace RestaurantOrderSystem.App
                         ViewMyOrders();
                         break;
                     case "5":
-                        AddMenuItem();
-                        break;
-                    case "6":
                         CreateOrder();
                         break;
-                    case "7":
+                    case "6":
                         ImportRestaurants();
                         break;
-                    case "8":
+                    case "7":
                         ImportMenuItems();
                         break;
-                    case "9":
+                    case "8":
                         ExportOrders();
                         break;
-                    case "10":
+                    case "9":
                         ShowTop10ExpensiveItems();
                         break;
-                    case "11":
+                    case "10":
                         ShowActiveOrders();
                         break;
-                    case "12":
+                    case "11":
                         ShowRestaurantStatistics();
                         break;
-                    case "13":
+                    case "12":
                         ShowPopularMenuItems();
                         break;
-                    case "14":
+                    case "13":
                         ShowAverageOrderValue();
                         break;
                     case "0":
@@ -314,9 +310,12 @@ namespace RestaurantOrderSystem.App
             }
         }
 
-        
+
         /// Administrator меню 
-        
+
+        /// <summary>
+        /// Administrator меню (управление на потребители + меню позиции)
+        /// </summary>
         static void AdministratorMenu()
         {
             while (true)
@@ -324,10 +323,16 @@ namespace RestaurantOrderSystem.App
                 UIHelper.PrintHeader("ADMINISTRATOR MENU");
                 Console.WriteLine($"Влезли сте като: {_currentUser!.Username} (Admin)\n");
 
+                Console.WriteLine("=== УПРАВЛЕНИЕ НА ПОТРЕБИТЕЛИ ===");
                 Console.WriteLine("1. Преглед на всички потребители");
                 Console.WriteLine("2. Блокирай потребител");
                 Console.WriteLine("3. Изтрий потребител");
-                Console.WriteLine("0. Logout");
+
+                Console.WriteLine("\n=== УПРАВЛЕНИЕ НА МЕНЮ ===");
+                Console.WriteLine("4. Преглед на меню позиции");
+                Console.WriteLine("5. Добави меню позиция");
+
+                Console.WriteLine("\n0. Logout");
                 Console.Write("\nИзберете опция: ");
 
                 string? choice = Console.ReadLine();
@@ -342,6 +347,12 @@ namespace RestaurantOrderSystem.App
                         break;
                     case "3":
                         DeleteUser();
+                        break;
+                    case "4":
+                        ViewMenuItems();
+                        break;
+                    case "5":
+                        AddMenuItem();
                         break;
                     case "0":
                         _currentUser = null;
@@ -424,11 +435,16 @@ namespace RestaurantOrderSystem.App
         {
             UIHelper.PrintHeader("ДОБАВЯНЕ НА МЕНЮ ПОЗИЦИЯ");
 
-            
+            // Показване на налични ресторанти
+            Console.WriteLine("=== НАЛИЧНИ РЕСТОРАНТИ ===\n");
             var restaurants = _dataService.GetAllRestaurants();
-            UIHelper.PrintRestaurants(restaurants);
 
-            Console.Write("Въведете ID на ресторант: ");
+            foreach (var r in restaurants)
+            {
+                Console.WriteLine($"{r.Id}. {r.Name}");
+            }
+
+            Console.Write("\nВъведете ID на ресторант: ");
             if (!int.TryParse(Console.ReadLine(), out int restaurantId))
             {
                 UIHelper.PrintError("Невалидно ID!");
@@ -436,16 +452,26 @@ namespace RestaurantOrderSystem.App
                 return;
             }
 
+            // Clear и показване на категории
+            UIHelper.PrintHeader("ДОБАВЯНЕ НА МЕНЮ ПОЗИЦИЯ");
+            Console.WriteLine("=== НАЛИЧНИ КАТЕГОРИИ ===\n");
             var categories = _dataService.GetAllCategories();
-            UIHelper.PrintCategories(categories);
 
-            Console.Write("Въведете ID на категория: ");
+            foreach (var c in categories)
+            {
+                Console.WriteLine($"{c.Id}. {c.Name} - {c.Description}");
+            }
+
+            Console.Write("\nВъведете ID на категория: ");
             if (!int.TryParse(Console.ReadLine(), out int categoryId))
             {
                 UIHelper.PrintError("Невалидно ID!");
                 UIHelper.WaitForKey();
                 return;
             }
+
+            // Clear и въвеждане на данни
+            UIHelper.PrintHeader("ДОБАВЯНЕ НА МЕНЮ ПОЗИЦИЯ");
 
             Console.Write("Име на ястието: ");
             string? name = Console.ReadLine();
@@ -479,9 +505,14 @@ namespace RestaurantOrderSystem.App
 
             var result = _dataService.AddMenuItem(dto);
 
+            UIHelper.PrintHeader("ДОБАВЯНЕ НА МЕНЮ ПОЗИЦИЯ");
+
             if (result != null)
             {
                 UIHelper.PrintSuccess($"Меню позиция '{result.Name}' е добавена успешно!");
+                Console.WriteLine($"\nРесторант: {result.RestaurantName}");
+                Console.WriteLine($"Категория: {result.CategoryName}");
+                Console.WriteLine($"Цена: {result.Price:F2} lv");
             }
             else
             {
@@ -794,11 +825,14 @@ namespace RestaurantOrderSystem.App
 
 
         /// Добавяне на начални данни в базата
+        /// <summary>
+        /// Добавяне на начални данни в базата
+        /// </summary>
         static void SeedInitialData()
         {
             Console.WriteLine("\nДобавяне на начални данни...");
 
-            
+            // Добавяне на администратор
             var admin = new UserRegisterDTO
             {
                 Username = "admin",
@@ -806,10 +840,12 @@ namespace RestaurantOrderSystem.App
             };
             _authService.Register(admin);
 
+            // Промяна на ролята на администратора
             var adminUser = _context.Users.First(u => u.Username == "admin");
             adminUser.Role = "Administrator";
             _context.SaveChanges();
 
+            // Добавяне на тестов потребител
             var testUser = new UserRegisterDTO
             {
                 Username = "user",
@@ -817,43 +853,123 @@ namespace RestaurantOrderSystem.App
             };
             _authService.Register(testUser);
 
-
+            // Добавяне на категории
             var categories = new List<CategoryImportDTO>
-            {
-                new CategoryImportDTO { Name = "Предястия", Description = "Студени и топли предястия" },
-                new CategoryImportDTO { Name = "Салати", Description = "Свежи салати" },
-                new CategoryImportDTO { Name = "Основни ястия", Description = "Месни и рибни ястия" },
-                new CategoryImportDTO { Name = "Паста", Description = "Италианска паста" },
-                new CategoryImportDTO { Name = "Десерти", Description = "Сладкиши и десерти" }
-            };
+    {
+        new CategoryImportDTO { Name = "Предястия", Description = "Студени и топли предястия" },
+        new CategoryImportDTO { Name = "Салати", Description = "Свежи салати" },
+        new CategoryImportDTO { Name = "Основни ястия", Description = "Месни и рибни ястия" },
+        new CategoryImportDTO { Name = "Паста", Description = "Италианска паста" },
+        new CategoryImportDTO { Name = "Десерти", Description = "Сладкиши и десерти" }
+    };
 
             foreach (var cat in categories)
             {
                 _dataService.AddCategory(cat);
             }
 
-
+            // Добавяне на ресторанти
             var restaurants = new List<RestaurantImportDTO>
-            {
-                new RestaurantImportDTO
-                {
-                    Name = "La Bella Vita",
-                    Address = "ул. Витоша 15, София",
-                    Phone = "02/123-4567",
-                    Email = "info@labellavita.bg"
-                },
-                new RestaurantImportDTO
-                {
-                    Name = "Bulgari Restaurant",
-                    Address = "бул. Княз Борис I 45, София",
-                    Phone = "02/234-5678",
-                    Email = "contact@bulgari.bg"
-                }
-            };
+    {
+        new RestaurantImportDTO
+        {
+            Name = "La Bella Vita",
+            Address = "ул. Витоша 15, София",
+            Phone = "02/123-4567",
+            Email = "info@labellavita.bg"
+        },
+        new RestaurantImportDTO
+        {
+            Name = "Bulgari Restaurant",
+            Address = "бул. Княз Борис I 45, София",
+            Phone = "02/234-5678",
+            Email = "contact@bulgari.bg"
+        }
+    };
 
             foreach (var rest in restaurants)
             {
                 _dataService.AddRestaurant(rest);
+            }
+
+            // Добавяне на меню позиции
+            var menuItems = new List<MenuItemImportDTO>
+    {
+        // Предястия - Гуакамоле
+        new MenuItemImportDTO
+        {
+            Name = "Гуакамоле",
+            Description = "Пюре от авокадо с лимон, чесън и домати",
+            Price = 8.50m,
+            IsAvailable = true,
+            RestaurantName = "La Bella Vita",
+            CategoryName = "Предястия"
+        },
+        
+        // Салати - Овчарска салата
+        new MenuItemImportDTO
+        {
+            Name = "Овчарска салата",
+            Description = "Салата с домати, краставици, чушки и сирене",
+            Price = 7.50m,
+            IsAvailable = true,
+            RestaurantName = "Bulgari Restaurant",
+            CategoryName = "Салати"
+        },
+        
+        // Основни ястия - Свински джолан
+        new MenuItemImportDTO
+        {
+            Name = "Свински джолан",
+            Description = "Печен свински джолан със зеленчуци",
+            Price = 18.00m,
+            IsAvailable = true,
+            RestaurantName = "Bulgari Restaurant",
+            CategoryName = "Основни ястия"
+        },
+        
+        // Паста - Болонезе
+        new MenuItemImportDTO
+        {
+            Name = "Спагети Болонезе",
+            Description = "Спагети с кайма и доматен сос",
+            Price = 14.50m,
+            IsAvailable = true,
+            RestaurantName = "La Bella Vita",
+            CategoryName = "Паста"
+        },
+        
+        // Десерти - Суфле
+        new MenuItemImportDTO
+        {
+            Name = "Шоколадово суфле",
+            Description = "Топло шоколадово суфле с течна средина",
+            Price = 9.50m,
+            IsAvailable = true,
+            RestaurantName = "La Bella Vita",
+            CategoryName = "Десерти"
+        }
+    };
+
+            // Добавяне на меню позициите в базата
+            foreach (var menuItem in menuItems)
+            {
+                var restaurant = _context.Restaurants.FirstOrDefault(r => r.Name == menuItem.RestaurantName);
+                var category = _context.Categories.FirstOrDefault(c => c.Name == menuItem.CategoryName);
+
+                if (restaurant != null && category != null)
+                {
+                    var dto = new MenuItemCreateDTO
+                    {
+                        Name = menuItem.Name,
+                        Description = menuItem.Description,
+                        Price = menuItem.Price,
+                        RestaurantId = restaurant.Id,
+                        CategoryId = category.Id
+                    };
+
+                    _dataService.AddMenuItem(dto);
+                }
             }
 
             UIHelper.PrintSuccess("Начални данни са добавени успешно!");

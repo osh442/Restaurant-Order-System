@@ -1,8 +1,7 @@
-﻿using RestaurantOrderSystem.Data;
-using RestaurantOrderSystem.App.DTOs;
+﻿using RestaurantOrderSystem.Data.DTOs;
 using Microsoft.EntityFrameworkCore;
 
-namespace RestaurantOrderSystem.App.Services
+namespace RestaurantOrderSystem.Data.Services
 {
 
     public class QueryService
